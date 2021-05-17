@@ -11,6 +11,7 @@ import {PasswordValidotor} from '../shared/password.validator';
 })
 export class SignupComponent implements OnInit {
   public registrationForm: FormGroup;
+  public isCreated = false;
   constructor(private fb: FormBuilder, private userService: UserService) { }
 
   get username(){
@@ -38,7 +39,14 @@ export class SignupComponent implements OnInit {
 
 
    public signUp(){
-     this.userService.signUp(this.registrationForm);
+
+     this.userService.signUp(this.registrationForm).subscribe(
+       data => {
+         this.isCreated = true;
+       }, error => {
+        });
+     this.registrationForm.reset();
+
    }
 
    get user(): User{

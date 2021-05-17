@@ -1,10 +1,13 @@
-<div class="card w-50 m-auto rounded-lg p-4 border">
+<div class="container mt-5 mb-5">
+  <div class="m-auto diva ">
+<div class="card p-4">
+  <div *ngIf="isCreated" class="alert-success p-3 w-100"><i class="fa fa-send-o"></i>   Account Created Successfully</div>
   <div class="card-body">
-    <div class="text-info text-lg-center fa-2x mb-4 font-weight-bolder display-2">Sign Up</div>
-    <form [formGroup]="registrationForm">
+    <div class="card-text text-info text-center   mb-4 font-weight-bolder  big-title">Sign Up</div>
+    <form [formGroup]="registrationForm" (ngSubmit)="signUp()">
 
       <div class="form-group">
-        <label class="font-weight-bold">Username</label>
+        <label class="font-weight-bold h-">Username</label>
         <input [class.is-invalid]="username.invalid && username.touched" formControlName="userName" type="text" class="form-control">
         <div *ngIf="username.invalid && username.touched">
           <small *ngIf="username.errors?.required" class="text-danger">Username required</small>
@@ -14,7 +17,7 @@
 
       <div class="form-group">
         <label class="font-weight-bold">Email</label>
-        <input pattern="^[\w-.#]{5,}@(gmail|hotmail).(com|fr)$" [class.is-invalid]="email.invalid && email.touched" formControlName="email" type="email" class="form-control">
+        <input pattern="^[a-zA-Z0-9_-.]{5,}@(gmail|hotmail).(com|fr)$" [class.is-invalid]="email.invalid && email.touched" formControlName="email" type="email" class="form-control">
         <div *ngIf="email.invalid && email.touched">
           <small *ngIf="email.errors?.required" class="text-danger">Email required</small>
           <small *ngIf="email.errors?.pattern" class="text-danger">Invalid Email</small>
@@ -31,16 +34,18 @@
 
       <div class="form-group">
         <label class="font-weight-bold">Confirm Password</label>
-        <input [class.is-invalid]="registrationForm.errors?.misMatch && confirmPassword.touched" formControlName="confirmPassword" type="password" class="form-control">
-        <div *ngIf="registrationForm.errors?.misMatch && confirmPassword.touched">
-          <small *ngIf="registrationForm.errors?.misMatch && confirmPassword.touched" class="text-danger">Passwords do  not match</small>
-        </div>
+        <input [class.is-invalid]="registrationForm.errors?.misMatch && confirmPassword.touched " formControlName="confirmPassword" type="password" class="form-control">
+
+        <small *ngIf="registrationForm.errors?.misMatch && confirmPassword.touched" class="text-danger">Passwords do  not match</small>
+
       </div>
       <div class="form-group d-flex justify-content-center">
-        <button [disabled]="!registrationForm.valid" type="submit" class="btn btn-success btn-block w-25 p-2"><i class="fa fa-user"></i>  Sign Up</button>
+        <button [disabled]="!registrationForm.valid" type="submit" class="btn btn-success btn-block w-50 p-2"><i class="fa fa-user"></i>  Sign Up</button>
       </div>
-      <a routerLink="/signIn" routerLinkActive="active" class="text-capitalize d-block text-center">Already have an account? Please signIn from <span class="text-info">here!</span></a>
+      <a routerLink="/signIn" routerLinkActive="active" class="text-capitalize d-block text-center">Already Have an account? Sign In</a>
     </form>
 
+  </div>
+</div>
   </div>
 </div>

@@ -1,2 +1,33 @@
 
 
+input{
+  border-radius: 20px;
+}
+div.card{
+  border-radius: 7px;
+}
+
+
+div.big-title{
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  div.big-title{
+    font-size: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  div.registration-nav{
+    display: none;
+  }
+  div.diva{
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  div.diva{
+    width: 50%;
+  }
+}

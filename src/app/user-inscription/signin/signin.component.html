@@ -1,30 +1,31 @@
-<div class="card w-50 m-auto">
+<div class="container mt-5 mb-5">
+  <div class="m-auto diva ">
+<div class="card "> <!-- w-50 m-auto -->
   <div class="card-body">
-    <div class="text-info text-lg-center fa-2x mb-4 font-weight-bolder">Sign In</div>
+    <div class="big-title text-info text-center mb-4 sm font-weight-bolder">Sign In</div>
     <form [formGroup]="signInForm" (ngSubmit)="signIn()">
       <div class="form-group">
-        <label class="font-weight-bold">Email</label>
-        <input  [class.is-invalid]="email.invalid && email.touched" pattern="^[\w-.#]{5,}@(gmail|hotmail).(com|fr)$"  formControlName="email" type="email" class="form-control">
+        <input  [class.is-invalid]="username.invalid && username.touched" placeholder="Enter Your username" formControlName="username" type="text" class="form-control">
 
-          <div *ngIf="email.invalid && email.touched">
-            <small *ngIf="email.errors?.required" class="text-danger">Email required</small>
-            <small *ngIf="email.errors?.pattern" class="text-danger">Invalid Email</small>
+          <div *ngIf="username.invalid && username.touched">
+            <small *ngIf="username.errors?.required" class="text-danger">username required</small>
           </div>
       </div>
 
       <div class="form-group">
-        <label class="font-weight-bold">Password</label>
-        <input  [class.is-invalid]="password.invalid && password.touched" formControlName="password" type="password" class="form-control">
+        <input  [class.is-invalid]="password.invalid && password.touched" placeholder="Enter Your Password" formControlName="password" type="password" class="form-control">
         <div *ngIf="password.invalid && password.touched">
           <small *ngIf="password.errors?.required" class="text-danger">Password required</small>
         </div>
       </div>
 
       <div class="form-group d-flex justify-content-center">
-        <button [disabled]=""  type="submit" class="btn btn-success btn-block w-25 p-2"><i class="fa fa-sign-in"></i>  Sign In</button>
+        <button  type="submit" class="btn btn-success w-50 "><i class="fa fa-sign-in"></i>  Sign In</button>
       </div>
-      <a routerLink="/signUp" routerLinkActive="active" class="text-capitalize d-block text-center">Don't have an account? Create one!</a>
+      <a routerLink="/signUp" routerLinkActive="active" class="text-capitalize d-block text-center">Create an account? Sign Up!</a>
     </form>
 
   </div>
+</div>
+</div>
 </div>
